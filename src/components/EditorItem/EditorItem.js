@@ -1,17 +1,29 @@
 // import Editor from "@monaco-editor/react";
 import Editor from "@monaco-editor/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import CodeContext from "../../contexts/codeContext";
 import "./EditorItem.scss";
 const EditorItem = ({ icon, lang }) => {
   const codeCtx = useContext(CodeContext);
-  const handleOnChange = (newValue, e) => {
+  const handleOnChange = (newValue) => {
     if (lang === "html") codeCtx.updateHtmlCode(newValue);
     if (lang === "css") codeCtx.updateCssCode(newValue);
     if (lang === "javascript") codeCtx.updateJsCode(newValue);
-    codeCtx.updateView();
     return;
   };
+  const editorRef = useRef(null);
+  function handleEditorDidMount(editor, monaco) {
+    editorRef.current = editor;
+  }
+
+  function getEditorValue() {
+    codeCtx.updateHtmlCode(editorRef.current?.getValue());
+    codeCtx.updateCssCode(editorRef.current?.getValue());
+    codeCtx.updateJsCode(editorRef.current?.getValue());
+  }
+  useEffect(() => {
+    getEditorValue();
+  }, []);
   return (
     <>
       <div className="editor js">
@@ -27,17 +39,15 @@ const EditorItem = ({ icon, lang }) => {
           </span>
         </div>
         <Editor
-          height="calc(100% - 35px)"
+          height="calc(100% - 55px)"
           language={lang}
           theme="vs-dark"
-          // onMount={handleEditorDidMount}
+          onMount={handleEditorDidMount}
           onChange={handleOnChange}
         />
-        {/* <Editor
-          height="100vh"
-          language="javascript"
-          value="console.log('Hello, World!');"
-        /> */}
+        <button onClick={getEditorValue} className="btn">
+          Run
+        </button>
       </div>
     </>
   );
