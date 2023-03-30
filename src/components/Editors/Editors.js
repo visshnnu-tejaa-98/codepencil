@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import "./Editors.scss";
 import HtmlImg from "../../assets/html_icon.png";
 import CssImg from "../../assets/css_icon.png";

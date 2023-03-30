@@ -2,6 +2,12 @@
   height: inherit;
   background-color: #1d1e22;
   overflow-y: auto;
+  .btn {
+    width: 0.5px;
+    height: 0.5px;
+    overflow: hidden;
+    visibility: hidden;
+  }
   .nav {
     background-color: #060606;
     color: #fff;
