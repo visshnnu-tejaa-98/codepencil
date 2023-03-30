@@ -1,0 +1,11 @@
+.parent-container {
+  background-color: #060606;
+  height: 50vh;
+  .editor-container {
+    width: calc(100vw - 20px);
+    height: calc(50vh - 10px);
+    display: flex;
+    gap: 10px;
+    margin: 0 auto;
+  }
+}
