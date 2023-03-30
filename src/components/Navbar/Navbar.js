@@ -9,7 +9,7 @@ const Navbar = () => {
           <h1>CODE PENCIL</h1>
         </div>
         <div>
-          <button>Change View</button>
+          <button>Github</button>
         </div>
       </nav>
     </>

@@ -1,0 +1,50 @@
+.editor {
+  height: inherit;
+  background-color: #1d1e22;
+  overflow-y: auto;
+  .btn {
+    width: 0.5px;
+    height: 0.5px;
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .nav {
+    background-color: #060606;
+    color: #fff;
+    position: relative;
+    .nav-container {
+      background-color: #1d1e22;
+      display: inline-block;
+      height: 35px;
+      .cont {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0.3rem 0.8rem;
+        border-top: 3px solid #34363e;
+      }
+      .resize-icon {
+        position: absolute;
+        right: 7px;
+        top: 7px;
+        transform: scale(0.8);
+        cursor: pointer;
+      }
+    }
+  }
+}
+.html {
+  //   background-color: red;
+  width: calc(100vw / 3);
+  flex: 1;
+}
+.css {
+  //   background-color: green;
+  width: calc(100vw / 3);
+  flex: 1;
+}
+.js {
+  //   background-color: blue;
+  width: calc(100vw / 3);
+  flex: 1;
+}
