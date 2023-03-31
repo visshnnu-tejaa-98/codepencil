@@ -7,11 +7,9 @@ import { CodeContextProvider } from "./contexts/codeContext";
 function App() {
   return (
     <CodeContextProvider>
-      <div className="App">
-        <Navbar />
-        <Editors />
-        <View />
-      </div>
+      <Navbar />
+      <Editors />
+      <View />
     </CodeContextProvider>
   );
 }
