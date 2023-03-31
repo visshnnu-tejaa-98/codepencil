@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import CodeContext from "../../contexts/codeContext";
+import "./View.scss";
 
 const View = () => {
   const codeCtx = useContext(CodeContext);
@@ -13,9 +14,7 @@ const View = () => {
         srcDoc={view}
         frameBorder="0"
         width="100%"
-        height="255px"
-        // width="99.8%"
-        // height="100%"
+        height="100%"
       ></iframe>
     </div>
   );

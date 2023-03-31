@@ -5,6 +5,7 @@ const CodeContext = createContext({
   cssCode: null,
   jsCode: null,
   view: null,
+  openEditor: null,
 });
 
 export const CodeContextProvider = (props) => {
@@ -12,6 +13,11 @@ export const CodeContextProvider = (props) => {
   const [cssCode, setCssCode] = useState("");
   const [jsCode, setJsCode] = useState("");
   const [view, setView] = useState(null);
+  const [openEditor, setOpenEditor] = useState({
+    html: false,
+    css: false,
+    javascript: false,
+  });
 
   const updateHtmlCode = (code) => {
     setHtmlCode(code);
@@ -48,6 +54,18 @@ export const CodeContextProvider = (props) => {
     `;
     setView(str);
   };
+  const updateOpenEditor = (editor) => {
+    if (editor === "css")
+      setOpenEditor({ html: false, css: !openEditor.css, javascript: false });
+    else if (editor === "html")
+      setOpenEditor({ html: !openEditor.html, css: false, javascript: false });
+    else if (editor === "javascript")
+      setOpenEditor({
+        html: false,
+        css: false,
+        javascript: !openEditor.javascript,
+      });
+  };
   return (
     <CodeContext.Provider
       value={{
@@ -55,10 +73,12 @@ export const CodeContextProvider = (props) => {
         cssCode: cssCode,
         jsCode: jsCode,
         view: view,
+        openEditor: openEditor,
         updateHtmlCode: updateHtmlCode,
         updateCssCode: updateCssCode,
         updateJsCode: updateJsCode,
         updateView: updateView,
+        updateOpenEditor: updateOpenEditor,
       }}
     >
       {props.children}

@@ -2,6 +2,8 @@
   height: inherit;
   background-color: #1d1e22;
   overflow-y: auto;
+  width: calc(100vw / 3);
+  flex: 1;
   .btn {
     width: 0.5px;
     height: 0.5px;
@@ -33,18 +35,6 @@
     }
   }
 }
-.html {
-  //   background-color: red;
-  width: calc(100vw / 3);
-  flex: 1;
-}
-.css {
-  //   background-color: green;
-  width: calc(100vw / 3);
-  flex: 1;
-}
-.js {
-  //   background-color: blue;
-  width: calc(100vw / 3);
-  flex: 1;
+.open {
+  flex: 5;
 }

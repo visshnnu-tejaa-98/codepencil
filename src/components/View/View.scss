@@ -1,10 +1,8 @@
-.view-container {
+.iframe-container {
   width: 100%;
-  height: calc(100vh - 24.9rem);
-  display: flex;
-  justify-content: center;
-  .iframe {
-    width: 100vw !important;
-    height: calc(100vh - 24.9rem) !important;
+  height: calc(100vh - 57vh);
+  iframe {
+    width: 100% !important;
+    height: 100% !important;
   }
 }
